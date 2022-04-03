@@ -8,8 +8,8 @@ if(len(sys.argv)) != 2:
     sys.exit(1)
 
 # Check if souls is a valid number
-if not sys.argv[1].isdigit() or int(sys.argv[1]) <= 0:
-    print("Error: numSouls debe ser un número positivo")
+if not sys.argv[1].isdigit():
+    print("Error: numSouls debe ser un número real.")
     sys.exit(1)
 
 # Check if file exists and then process it
