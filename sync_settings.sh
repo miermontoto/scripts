@@ -1,0 +1,1 @@
+rsync ~/.config/* config/ -r
