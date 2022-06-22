@@ -1,1 +1,1 @@
-rsync ~/.config/* config/ -r
+rsync ~/.config/* ~/git/dotfiles/config/ -r
