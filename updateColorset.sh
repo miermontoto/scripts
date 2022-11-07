@@ -1,1 +1,0 @@
-wal -i ".cache/apod/"
