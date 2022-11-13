@@ -1,0 +1,22 @@
+#!/bin/bash
+# pull all repos under the directory ~/uo/ recursively
+
+cd ~/uo
+echo -n "Working... "
+for i in `find . -name .git`; do
+    # remove the .git from the path
+    cd ${i%/*}
+
+    # print directory name
+    echo -e -n "\033[1;32m${PWD##*/}\033[0m "
+    git pull >/dev/null 2>&1
+    # if the last command failed, try git pull origin main or master
+    if [ $? -ne 0 ]; then
+        git pull origin main >/dev/null 2>&1
+        if [ $? -ne 0 ]; then
+            git pull origin master >/dev/null 2>&1
+        fi
+    fi
+    cd ~/uo
+done
+echo
