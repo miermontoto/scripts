@@ -1,9 +1,10 @@
-import sys, os
+import sys
+import os
 
 fileName = "lostSouls.txt"
 
 # File that adds number of lost souls from user input
-if(len(sys.argv)) != 2:
+if len(sys.argv) != 2:
     print(f"Uso: python3 {sys.argv[0]} <numSouls>")
     sys.exit(1)
 
@@ -13,13 +14,11 @@ if not sys.argv[1].isdigit():
     sys.exit(1)
 
 # Check if file exists and then process it
-if(os.path.isfile(fileName)):
-    with open(fileName, "r") as f:
-        souls = f.read().split(" ")[2]
-        souls = int(souls) + int(sys.argv[1])
-        with open(fileName, "w") as f:
-            f.write(f"Almas perdidas: {souls}\n")
-else:
+if not os.path.isfile(fileName):
     print("No se encuentra el archivo de almas perdidas.")
     sys.exit(1)
-    
+
+with open(fileName, "r") as f:
+    souls = int(f.read().split(" ")[2]) + int(sys.argv[1])
+with open(fileName, "w") as f:
+    f.write(f"Almas perdidas: {souls}\n")

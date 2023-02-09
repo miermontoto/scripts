@@ -1,5 +1,4 @@
 # For each subdirectory
-# subdirectory names are "Season S" where 
 for dir in `ls -d */`
 do
     # For each file in the subdirectory
